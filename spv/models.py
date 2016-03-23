@@ -15,10 +15,6 @@ WEEKDAYS = [
 	(7, "Sunday"),
 ]
 
-class PhoneModel(models.Model):
-	phone_regex = RegexValidator(regex=r'^\+?1?\d{9,15}$', message="Phone number must be entered in the format: '+999999999'. Up to 15 digits allowed.")
-	phone_number = models.CharField(validators=[phone_regex], blank=True, max_length=20) # validators should be a list
-
 class Owner(models.Model):
 	holder = models.CharField(max_length=100)
 	email = models.EmailField()
@@ -49,17 +45,17 @@ class Negocio(models.Model):
 	industry = models.ForeignKey('spv.Industry', related_name='industry')
 	
 	name = models.CharField(max_length=200)
-	slogan = models.CharField(max_length=200, blank=True)
+	slogan = models.CharField(max_length=200, blank=True, null=True)
 	info = models.TextField()
-	email = models.EmailField(blank=True)
-	location = models.TextField(blank=True)
+	email = models.EmailField(blank=True, null=True)
+	location = models.TextField()
 
-	cel1 = models.ForeignKey('spv.PhoneModel', related_name='cel1', blank=True)
-	cel2 = models.ForeignKey('spv.PhoneModel', related_name='cel2', blank=True)
-	cel3 = models.ForeignKey('spv.PhoneModel', related_name='cel3', blank=True)
-	social_fb = models.CharField(max_length=200, blank=True)
-	social_twitter = models.CharField(max_length=200, blank=True)
-	social_website = models.URLField(blank=True)
+	cel1 = models.CharField(max_length=25, blank=True, null=True)
+	cel2 = models.CharField(max_length=25, blank=True, null=True)
+	cel3 = models.CharField(max_length=25, blank=True, null=True)
+	social_fb = models.CharField(max_length=200, blank=True, null=True)
+	social_twitter = models.CharField(max_length=200, blank=True, null=True)
+	social_website = models.URLField(blank=True, null=True)
 	
 	tags = TaggableManager()
 	published_date = models.DateTimeField(blank=True, null=True)
@@ -80,8 +76,8 @@ class OpeningHours(models.Model):
 	to_hour = models.TimeField()
 
 class NegocioImg(models.Model):
-	negocio = models.ForeignKey(Negocio, related_name='negocio')
+	negocio = models.ForeignKey('spv.Negocio', related_name='negocio')
 	image = models.ImageField()
 
 	def __str__(self):
-		return self.negocio
+		return self.negocio.name
