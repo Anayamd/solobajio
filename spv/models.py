@@ -66,6 +66,7 @@ class Negocio(models.Model):
 	tags = TaggableManager()
 	published_date = models.DateTimeField(blank=True, null=True)
 	fb_mentions = models.SmallIntegerField()
+	ranking = models.IntegerField(default=0)
 
 	def publicar(self):
 		self.published_date = timezone.now()
@@ -75,7 +76,7 @@ class Negocio(models.Model):
 	def __str__(self):
 		return self.name
 
-class OpeningHours(models.Model):
+class OpeningHour(models.Model):
 	store = models.ForeignKey('spv.Negocio', related_name='store')
 	weekday = models.SmallIntegerField(choices=WEEKDAYS,unique=True)
 	from_hour = models.TimeField()
