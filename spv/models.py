@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from django.core.validators import RegexValidator
+from django.conf import settings
 
 # https://django-taggit.readthedocs.org/en/latest/getting_started.html
 from taggit.managers import TaggableManager
@@ -34,7 +35,12 @@ class Package(models.Model):
 
 class Industry(models.Model):
 	ind_type = models.CharField(max_length=50)
-	icon = models.ImageField()
+	icon = models.ImageField(upload_to='img/industry/')
+
+	def admin_thumbnail(self):
+		return u'<img src="%s" style="max-height:30px;">' % (self.icon.url)
+	admin_thumbnail.short_description = 'Thumbnail'
+	admin_thumbnail.allow_tags = True
 
 	def __str__(self):
 		return self.ind_type
@@ -77,7 +83,17 @@ class OpeningHours(models.Model):
 
 class NegocioImg(models.Model):
 	negocio = models.ForeignKey('spv.Negocio', related_name='negocio')
-	image = models.ImageField()
+
+	def generate_folder_for_business(self, filename):
+		# img/nombre_negocio/foto.jpg
+		return 'img/' + self.negocio.name + '/' + filename
+
+	image = models.ImageField(upload_to=generate_folder_for_business)
+
+	def admin_thumbnail(self):
+		return u'<img src="%s" style="max-height:30px;">' % (self.image.url)
+	admin_thumbnail.short_description = 'Thumbnail'
+	admin_thumbnail.allow_tags = True
 
 	def __str__(self):
 		return self.negocio.name

@@ -11,11 +11,15 @@ class NegocioAdmin(admin.ModelAdmin):
 	inlines = [ ImageInline, ]
 
 class ImgAdmin(admin.ModelAdmin):
-	list_display = ('negocio', 'image')
+	list_display = ('negocio', 'admin_thumbnail')
 	list_filter = ('negocio__name',)
+
+class IndustryAdmin(admin.ModelAdmin):
+	list_display = ('ind_type', 'icon')
+	list_display = ('ind_type', 'admin_thumbnail')
 
 admin.site.register(Owner)
 admin.site.register(Package)
-admin.site.register(Industry)
+admin.site.register(Industry, IndustryAdmin)
 admin.site.register(Negocio, NegocioAdmin)
 admin.site.register(NegocioImg, ImgAdmin)
