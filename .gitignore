@@ -12,3 +12,5 @@ tests/.coverage
 build/
 tests/report/
 venv/
+media/
+
