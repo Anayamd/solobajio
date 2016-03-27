@@ -1,0 +1,47 @@
+@import 'colors';
+
+.btn-primary {
+	border-color: $color-yellow;
+	background-color: $color-yellow;
+	color: #000;
+
+	&:hover {
+		color: #000;
+		border-color: $color-yellow-dark;
+		background-color: $color-yellow-dark;
+	}
+}
+
+.btn-secondary {
+	border-color: $color-brown;
+	background-color: $color-brown;
+
+	&:hover {
+		border-color: $color-brown-dark;
+		background-color: $color-brown-dark;
+	}
+}
+
+.btn-primary-hollow {
+	border-color: $color-yellow;
+	background-color: transparent;
+	color: $color-yellow;
+
+	&:hover {
+		border-color: $color-yellow-dark;
+		background-color: transparent;
+		color: $color-yellow-dark;
+	}
+}
+
+.btn-secondary-hollow {
+	border-color: $color-brown;
+	background-color: transparent;
+	color: $color-brown;
+
+	&:hover {
+		border-color: $color-brown-dark;
+		background-color: transparent;
+		color: $color-brown-dark;
+	}
+}

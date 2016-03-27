@@ -1,0 +1,31 @@
+{% load staticfiles %}
+<footer class="footer">
+	<div class="row fn-white">
+		<div class="small-12 medium-6 columns footer-main">
+			<h2><img src="{% static 'img/SoloBajio_icon.png' %}" class="logo">SoloBajio</h2>
+			<p class="footer-links">
+				<a href="">Inicio</a>
+				<a href="">Lugares</a>
+				<a href="">Eventos</a>
+				<a href="">Conocenos</a>
+				<a href="">Contacto</a>
+			</p>
+			<ul class="inline-list social">
+				<a href=""><i class="fi-social-facebook"></i></a>
+				<a href=""><i class="fi-social-twitter"></i></a>
+				<a href=""><i class="fi-social-linkedin"></i></a>
+				<a href=""><i class="fi-social-github"></i></a>
+			</ul>
+			<p class="copywrite">&copy; Soluciones Dual 2016</p>
+		</div>
+
+		<div class="small-12 medium-6 columns">
+			<form class="footer-form">
+				<h3>Contactanos</h3>
+				<input type="email" id="email" placeholder="Email" required></input>
+				<textarea rows="2" id="message" placeholder="Mensaje" required></textarea>
+				<button class="button large btn-primary" type="submit" value="Submit">Enviar</button>
+			</form>
+		</div>
+	</div>
+</footer>

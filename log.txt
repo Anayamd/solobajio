@@ -1,0 +1,35 @@
+commit 7321c590bf48eb7867385e8e06957e117ef30f68
+Author: Diego Mancilla <anayamd96@gmail.com>
+Date:   Thu Mar 24 19:21:43 2016 -0600
+
+    Squeleton for templates and SASS
+
+commit 64c72f7e54532bc700758afd272e04b0e1838b6c
+Author: Diego Mancilla <anayamd96@gmail.com>
+Date:   Wed Mar 23 13:36:15 2016 -0600
+
+    Added opening hours. Polished admin template
+
+commit 61cae90f579298c34f33f29e941d78354cce4ee0
+Author: Diego Mancilla <anayamd96@gmail.com>
+Date:   Wed Mar 23 02:09:17 2016 -0600
+
+    Dummy template, and dummy Django Admin personalization (urls.py)
+
+commit 85f8649db108ea45447500f36dd4cba598fff0f8
+Author: Diego Mancilla <anayamd96@gmail.com>
+Date:   Wed Mar 23 01:57:21 2016 -0600
+
+    Images working ok, thumbnails in admin. We might be ready to work in the frontend.
+
+commit 6c5702b0736a5566f3f2f8a7ebdc0dbd972ba69d
+Author: Diego Mancilla <anayamd96@gmail.com>
+Date:   Wed Mar 23 01:04:02 2016 -0600
+
+    Admin site edited. Polished models.
+
+commit fa118d42d1c8c3efc206ddc6878d6ccefdbdf2e4
+Author: Diego Mancilla <anayamd96@gmail.com>
+Date:   Tue Mar 22 23:23:01 2016 -0600
+
+    First commit. Raw models included in Django admin
