@@ -19,6 +19,10 @@
 	border: 0;
 }
 
+.bg-gray {
+	background-color: #E5E5E5;
+}
+
 .bg-skin {
 	/* Safari 4-5, Chrome 1-9 */ /* Can't specify a percentage size? Laaaaaame. */
 	background: -webkit-gradient(radial, center center, 0, center center, 460, from($color-skin), to($color-sand)); 

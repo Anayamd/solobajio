@@ -1,0 +1,19 @@
+{% extends "_parts/base.html" %}
+
+{% block body_class %}bg-gray{% endblock body_class %}
+
+{% block page_title %}
+	| Eventos
+{% endblock page_title %}
+
+{% block header %}
+	{% include "_parts/menu.html" %}
+{% endblock header %}
+
+{% block content %}
+	{% include "eventos/content.html" %}
+{% endblock content %}
+
+{% block footer %}
+	{% include "_parts/footer.html" %}
+{% endblock footer %}

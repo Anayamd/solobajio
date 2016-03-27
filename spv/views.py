@@ -8,3 +8,6 @@ def home(request):
 def lugares(request):
 	negocios = Negocio.objects.all()
 	return render(request, 'lugares/index.html', {'negocios':negocios})
+
+def eventos(request):
+	return render(request, 'eventos/index.html')
