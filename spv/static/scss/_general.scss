@@ -12,6 +12,11 @@
 	border-left: 0px;
 }
 
+a:hover > img {
+	-webkit-filter: brightness(.8);
+	filter: brightness(.8);
+}
+
 ////////// Phone //////////
 
 @media (max-width: $grid-tablet-breakpoint - 1) {

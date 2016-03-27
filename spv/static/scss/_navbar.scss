@@ -1,7 +1,7 @@
 @import 'colors';
 @import 'variables';
 
-.top-bar {
+#navbar {
 	background-color: $color-menu;
 	padding: 0;
 	border-bottom: 2px solid #000;
@@ -38,7 +38,7 @@
 ////////// Phone //////////
 
 @media (max-width: $grid-tablet-breakpoint - 1) {
-	.top-bar li a {
+	#navbar li a {
 		padding: .7rem 1rem;
 	}
 }
@@ -52,7 +52,7 @@
 ////////// Desktop //////////
 
 @media (min-width: $grid-desktop-breakpoint) {
-	.top-bar li a {
+	#navbar li a {
 		line-height: 3;
 		padding: .7rem 2.5rem;
 	}

@@ -1,3 +1,15 @@
+commit d717c92802930b21eede35ba6e626d26c94bedcc
+Author: Diego Mancilla <anayamd96@gmail.com>
+Date:   Sat Mar 26 19:08:14 2016 -0600
+
+    Changes where not having effect in status until now
+
+commit 436773bcf43ff6fe3de88989bcb5bd8c2b5cab46
+Author: Diego Mancilla <anayamd96@gmail.com>
+Date:   Thu Mar 24 19:22:48 2016 -0600
+
+    Compress app included in settings
+
 commit 7321c590bf48eb7867385e8e06957e117ef30f68
 Author: Diego Mancilla <anayamd96@gmail.com>
 Date:   Thu Mar 24 19:21:43 2016 -0600

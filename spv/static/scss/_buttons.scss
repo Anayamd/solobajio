@@ -5,7 +5,7 @@
 	background-color: $color-yellow;
 	color: #000;
 
-	&:hover {
+	&:hover, &:focus {
 		color: #000;
 		border-color: $color-yellow-dark;
 		background-color: $color-yellow-dark;
@@ -13,12 +13,12 @@
 }
 
 .btn-secondary {
-	border-color: $color-brown;
-	background-color: $color-brown;
+	border-color: $color-purple;
+	background-color: $color-purple;
 
-	&:hover {
-		border-color: $color-brown-dark;
-		background-color: $color-brown-dark;
+	&:hover, &:focus {
+		border-color: $color-purple-dark;
+		background-color: $color-purple-dark;
 	}
 }
 
@@ -27,7 +27,7 @@
 	background-color: transparent;
 	color: $color-yellow;
 
-	&:hover {
+	&:hover, &:focus {
 		border-color: $color-yellow-dark;
 		background-color: transparent;
 		color: $color-yellow-dark;
@@ -35,13 +35,13 @@
 }
 
 .btn-secondary-hollow {
-	border-color: $color-brown;
+	border-color: $color-purple;
 	background-color: transparent;
-	color: $color-brown;
+	color: $color-purple;
 
-	&:hover {
-		border-color: $color-brown-dark;
+	&:hover, &:focus {
+		border-color: $color-purple-dark;
 		background-color: transparent;
-		color: $color-brown-dark;
+		color: $color-purple-dark;
 	}
 }

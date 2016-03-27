@@ -7,4 +7,5 @@ admin.site.site_title = 'SPV'
 
 urlpatterns = [
 	url(r'^$', views.home, name='home'),
+	url(r'^lugares/$', views.lugares, name='lugares'),
 ]

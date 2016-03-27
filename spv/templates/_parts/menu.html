@@ -1,9 +1,9 @@
 {% load staticfiles %}
-<div class="top-bar">
+<div class="top-bar" id="navbar">
 	<div class="top-bar-left">
 		<ul class="menu">
-			<li><a href=""><img src="{% static 'img/SoloBajio_icon.png' %}"><strong class="fn-white hide-for-small-only">SoloBajio</strong></a></li>
-			<li><a href="">Lugares</a></li>
+			<li><a href="{% url 'home' %}"><img src="{% static 'img/SoloBajio_icon.png' %}"><strong class="fn-white hide-for-small-only">SoloBajio</strong></a></li>
+			<li><a href="{% url 'lugares' %}">Lugares</a></li>
 			<li><a href="">Eventos</a></li>
 		</ul>
 	</div>
