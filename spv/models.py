@@ -66,7 +66,8 @@ class Negocio(models.Model):
 	tags = TaggableManager()
 	published_date = models.DateTimeField(blank=True, null=True)
 	fb_mentions = models.SmallIntegerField()
-	ranking = models.IntegerField(default=0)
+	visits = models.IntegerField(default=0)
+	ranking = models.FloatField(default=0)
 
 	def publicar(self):
 		self.published_date = timezone.now()
@@ -83,7 +84,7 @@ class OpeningHour(models.Model):
 	to_hour = models.TimeField()
 
 class NegocioImg(models.Model):
-	negocio = models.ForeignKey('spv.Negocio', related_name='negocio')
+	negocio = models.ForeignKey('spv.Negocio', related_name='images')
 
 	def generate_folder_for_business(self, filename):
 		# img/nombre_negocio/foto.jpg

@@ -1,7 +1,7 @@
 {% load staticfiles %}
 <div class="top-bar shadow-6dp" id="lugares-filtros">
-	<div class="top-bar-right">
-		<ul class="dropdown menu colored" data-dropdown-menu>
+	<div class="top-bar-left">
+		<ul class="dropdown menu colored text-center" data-dropdown-menu>
 			<li>
 				<a href="" class="elegir-title">Ordenar</a>
 				<ul class="menu vertical">
@@ -17,13 +17,27 @@
 					<li><a href="">Auto</a></li>
 				</ul>
 			</li>
+		</ul>
+	</div>
+	<div class="top-bar-right">
+		<div class="menu">
 			<li><input type="search" placeholder="Nombre del negocio"></li>
 			<li><button type="button" class="button btn-primary">Buscar</button></li>
-		</ul>
+		</div>
 	</div>
 </div>
 
 <div class="row small-up-2 medium-up-2 large-up-3" id="lugares-listado" data-equalizer>
+{% for negocio in negocios %}
+	<div class="column">
+			<figure class="lugar">
+				<a href="info/{{negocio.pk}}"><img src="{{ MEDIA_URL }}{{ negocio.images.all.0.image }}" alt="{{ negocio.images.0 }}" data-equalizer-watch></a>
+				<figcaption>
+					<p><img src="{{ MEDIA_URL }}{{ negocio.industry.icon }}">{{ negocio.name }}</p>
+				</figcaption>			
+			</figure>
+	</div>
+{% endfor %}
 	<div class="column">
 			<figure class="lugar">
 				<a href=""><img src="http://placehold.it/900x450" data-equalizer-watch></a>

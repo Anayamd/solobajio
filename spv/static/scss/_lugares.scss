@@ -8,7 +8,7 @@
 		background-color: $color-purple;
 
 		.elegir-title {
-			margin-right: 20px;
+			margin: 0 30px;
 			color: #fff;
 		}
 	}
@@ -17,4 +17,20 @@
 #lugares-listado {
 	margin-top: 30px;
 	margin-bottom: 30px;
+}
+
+.lugar {
+	color: #111;
+	width: 100%;
+	margin: 0;
+
+	a > img {
+		width: 100%;
+	}
+
+	p img {
+		vertical-align: top;
+		max-height: 25px;
+		margin: 0px 5px;
+	}
 }
