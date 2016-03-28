@@ -1,0 +1,45 @@
+{% load staticfiles %}
+
+<div class="map-display">
+	{{ negocio.location|safe }}
+</div>
+
+<div id="info-content">
+	<div class="title text-center">
+		<h1>{{ negocio.name }}</h1>
+		<h2>{{ negocio.slogan }}</h2>
+	</div>
+	
+	<hr>
+	
+	<div class="text-center tags">
+		{% for tag in negocio.tags.all %}
+			<a href=""><div class="chip-accent">{{ tag.name }}</div></a>
+		{% endfor %}
+	</div>
+
+	<div class="row" id="main-content">
+		<h3>hi</h3>
+	</div>
+
+	<div class="row column recomendados">
+		<hr>
+		<h4 style="margin: 0;" class="text-center">Recomendados</h4>
+		<hr>
+	</div>
+
+	<div class="row small-up-2 large-up-4">
+		<div class="column">
+			<p><a href=""><img src="http://placehold.it/640x480"></a></p>
+		</div>
+		<div class="column">
+			<p><a href=""><img src="http://placehold.it/640x480"></a></p>
+		</div>
+		<div class="column">
+			<p><a href=""><img src="http://placehold.it/640x480"></a></p>
+		</div>
+		<div class="column">
+			<p><a href=""><img src="http://placehold.it/640x480"></a></p>
+		</div>
+	</div>
+</div>

@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from .models import Negocio
+from django.shortcuts import render, get_object_or_404
+from .models import Negocio, Evento
 
 def home(request):
 	# no_pagaron = Negocio.objects.orderby(ranking)
@@ -10,4 +10,9 @@ def lugares(request):
 	return render(request, 'lugares/index.html', {'negocios':negocios})
 
 def eventos(request):
-	return render(request, 'eventos/index.html')
+	eventos = Evento.objects.all()
+	return render(request, 'eventos/index.html', {'eventos': eventos})
+
+def info(request, pk):
+	negocio = get_object_or_404(Negocio, pk=pk)
+	return render(request, 'info/index.html', {'negocio': negocio})

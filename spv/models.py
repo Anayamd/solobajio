@@ -7,13 +7,13 @@ from django.conf import settings
 from taggit.managers import TaggableManager
 
 WEEKDAYS = [
-	(1, "Monday"),
-	(2, "Tuesday"),
-	(3, "Wednesday"),
-	(4, "Thursday"),
-	(5, "Friday"),
-	(6, "Saturday"),
-	(7, "Sunday"),
+	(1, "Lunes"),
+	(2, "Martes"),
+	(3, "Miércoles"),
+	(4, "Jueves"),
+	(5, "Viernes"),
+	(6, "Sábado"),
+	(7, "Domingo"),
 ]
 
 class Owner(models.Model):
@@ -99,3 +99,29 @@ class NegocioImg(models.Model):
 
 	def __str__(self):
 		return self.negocio.name
+
+class Evento(models.Model):
+	title = models.CharField(max_length=200)
+	date = models.DateTimeField()
+	place = models.CharField(max_length=50)
+	description = models.TextField()
+
+	def __str__(self):
+		return self.title
+
+class EventoImg(models.Model):
+	evento = models.ForeignKey('spv.Evento', related_name='image')
+
+	def generate_file_path(self, filename):
+		# img/nombre_negocio/foto.jpg
+		return 'img/eventos/' + filename
+
+	image = models.ImageField(upload_to=generate_file_path)
+
+	def admin_thumbnail(self):
+		return u'<img src="%s" style="max-height:30px;">' % (self.image.url)
+	admin_thumbnail.short_description = 'Thumbnail'
+	admin_thumbnail.allow_tags = True
+
+	def __str__(self):
+		return self.evento.title

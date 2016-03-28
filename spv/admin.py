@@ -1,5 +1,7 @@
 from django.contrib import admin
-from .models import Owner, Package, Industry, Negocio, NegocioImg, OpeningHour
+from .models import Owner, Package, Industry, Negocio, NegocioImg, OpeningHour, Evento, EventoImg
+
+# NEGOCIOS #
 
 class HoursInline(admin.TabularInline):
 	model = OpeningHour
@@ -19,12 +21,25 @@ class ImgAdmin(admin.ModelAdmin):
 	list_display = ('negocio', 'admin_thumbnail')
 	list_filter = ('negocio__name',)
 
+# INDUSTRY #
+
 class IndustryAdmin(admin.ModelAdmin):
 	list_display = ('ind_type', 'icon')
 	list_display = ('ind_type', 'admin_thumbnail')
+
+# EVENTO #
+
+class ImgEventoInline(admin.StackedInline):
+	model = EventoImg
+	max_num = 1
+
+class EventoAdmin(admin.ModelAdmin):
+	inlines = [ ImgEventoInline, ]
+
 
 admin.site.register(Owner)
 admin.site.register(Package)
 admin.site.register(Industry, IndustryAdmin)
 admin.site.register(Negocio, NegocioAdmin)
 admin.site.register(NegocioImg, ImgAdmin)
+admin.site.register(Evento, EventoAdmin)

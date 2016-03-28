@@ -20,9 +20,7 @@
 			color: $color-purple;
 			font-size: 18px;
 			font-weight: bold;
-			border: 2px solid $color-purple;
-			border-top: 0px;
-			background-color: rgba($color-purple, .1);
+			border-bottom: 2px solid $color-purple;
 			-webkit-backdrop-filter: blur(10px);
 
 			p {
@@ -39,6 +37,7 @@
 		}
 		p {
 			color: #444;
+			margin-bottom: 10px;
 		}
 	}
 
@@ -46,5 +45,7 @@
 		padding: 10px 20px;
 		text-align: justify;
 		text-justify: inter-word;
+		white-space: pre-line;
+		font-size: 14px;
 	}
 }
