@@ -15,3 +15,49 @@
 {% block footer %}
 	{% include "_parts/footer.html" %}
 {% endblock footer %}
+
+{% block js %}
+	 {# AIzaSyCGkrbbQy477Od5YQkSa9hSQ1O6dDqKtZ8  #}
+	 <script>
+      var map;
+      function initMap() {
+      	var mapOptions = {
+            zoom: 16,
+            scrollwheel: false,
+            center: new google.maps.LatLng({{ negocio.latitud }}, {{ negocio.longitud }}),
+            disableDefaultUI: true,
+            zoomControl: true,
+            streetViewControl: true,
+
+            // Map style from snazzymaps.com
+            styles: [{"featureType":"landscape.man_made","elementType":"geometry","stylers":[{"color":"#f7f1df"}]},{"featureType":"landscape.natural","elementType":"geometry","stylers":[{"color":"#d0e3b4"}]},{"featureType":"landscape.natural.terrain","elementType":"geometry","stylers":[{"visibility":"off"}]},{"featureType":"poi","elementType":"labels","stylers":[{"visibility":"on"}]},{"featureType":"poi.business","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"poi.medical","elementType":"geometry","stylers":[{"color":"#fbd3da"}]},{"featureType":"poi.park","elementType":"geometry","stylers":[{"color":"#bde6ab"}]},{"featureType":"road","elementType":"geometry.stroke","stylers":[{"visibility":"on"}]},{"featureType":"road","elementType":"labels","stylers":[{"visibility":"on"}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#ffe15f"}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#efd151"}]},{"featureType":"road.arterial","elementType":"geometry.fill","stylers":[{"color":"#ffffff"}]},{"featureType":"road.local","elementType":"geometry.fill","stylers":[{"color":"black"}]},{"featureType":"transit.station.airport","elementType":"geometry.fill","stylers":[{"color":"#cfb2db"}]},{"featureType":"water","elementType":"geometry","stylers":[{"color":"#a2daf2"}]}]
+        };
+	  var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+
+	  var marker = new google.maps.Marker({
+	    map: map,
+	    // Define the place with a location, and a query string.
+	    place: {
+	      location: {lat: {{ negocio.latitud }}, lng: {{ negocio.longitud }}},
+	      query: '{{ negocio.name }}, SoloBajio'
+	    },
+	    // Attributions help users find your site again.
+	    attribution: {
+	      source: 'Google Maps JavaScript API',
+	      webUrl: 'https://developers.google.com/maps/'
+	    }
+	  });
+
+	  // Construct a new InfoWindow.
+	  var infoWindow = new google.maps.InfoWindow({
+	    content: '<strong>{{ negocio.name }}</strong><br>{{ negocio.direccion }}'
+	  });
+
+	  // Opens the InfoWindow when marker is clicked.
+	  marker.addListener('click', function() {
+	    infoWindow.open(map, marker);
+	  });
+	}
+    </script>
+	 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCGkrbbQy477Od5YQkSa9hSQ1O6dDqKtZ8&signed_in=true&callback=initMap" async defer></script>
+{% endblock js %}

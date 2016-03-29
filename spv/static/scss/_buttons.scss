@@ -22,6 +22,16 @@
 	}
 }
 
+.btn-accent {
+	border-color: $color-blue-light;
+	background-color: $color-blue-light;
+
+	&:hover, &:focus {
+		border-color: $color-blue;
+		background-color: $color-blue;
+	}
+}
+
 .btn-primary-hollow {
 	border-color: $color-yellow;
 	background-color: transparent;

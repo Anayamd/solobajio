@@ -1,8 +1,6 @@
 {% load staticfiles %}
 
-<div class="map-display">
-	{{ negocio.location|safe }}
-</div>
+<div class="map-display" id="map"></div>
 
 <div id="info-content">
 	<div class="title text-center">
@@ -18,9 +16,51 @@
 		{% endfor %}
 	</div>
 
-	<div class="row" id="main-content">
-		<h3>hi</h3>
+	<div class="gallery">
+		<img src="{{ MEDIA_URL }}{{ negocio.images.all.0.image }}">
 	</div>
+	
+	<div class="bg-sky">
+	<div class="medium-up-2 row simple-blur" id="main-content" data-equalizer>
+		<div class="flex-middle text- column" data-equalizer-watch>
+			<ul class="collection with-header">
+				<li class="collection-header"><h4>Contacto</h4></li>
+				{% if negocio.cel1 and negocio.cel1 != "" %}
+					<a href="tel:{{ negocio.cel1 }}"><li class="collection-item"><i class="fi-telephone"></i>{{ negocio.cel1 }}</li></a>
+				{% endif %}
+				{% if negocio.cel2 and negocio.cel2 != "" %}
+					<a href="tel:{{ negocio.cel2 }}"><li class="collection-item"><i class="fi-telephone"></i>{{ negocio.cel2 }}</li></a>
+				{% endif %}
+				{% if negocio.cel3 and negocio.cel3 != "" %}
+					<a href="tel:{{ negocio.cel3 }}"><li class="collection-item"><i class="fi-telephone"></i>{{ negocio.cel3 }}</li></a>
+				{% endif %}
+				{% if negocio.email and negocio.email != "" %}
+					<a href="mailto:{{ negocio.email }}?Subject=SoloBajio%20Contacto"><li class="collection-item"><i class="fi-mail"></i>{{ negocio.email }}</li></a>
+				{% endif %}
+			</ul>
+		</div>
+		<div class="flex-middle column" data-equalizer-watch>
+			<div class="social">
+				{% if negocio.social_fb and negocio.social_fb != "" %}
+					<a href="http://facebook.com/{{ negocio.social_fb }}" class="button btn-secondary"><i class="fi-social-facebook"></i>{{ negocio.social_fb }}</a>
+				{% endif %}
+				{% if negocio.social_twitter and negocio.social_twitter != "" %}
+					<a href="http://twitter.com/{{ negocio.social_twitter }}" class="button btn-secondary"><i class="fi-social-twitter"></i>{{ negocio.social_twitter }}</a>
+				{% endif %}
+				{% if negocio.social_website and negocio.social_website != "" %}
+					<a href="http://{{ negocio.social_website }}" class="button btn-secondary">{{ negocio.social_website }}</a>
+				{% endif %}
+			</div>
+		</div>
+	</div>
+	</div>
+
+	<!--<div class="flex-middle column">
+		<div>
+			<h4 class="text-center">Descripcion</h4>
+			<p class="justify negocio-info">{{ negocio.info }}</p>
+		</div>
+	</div>-->
 
 	<div class="row column recomendados">
 		<hr>

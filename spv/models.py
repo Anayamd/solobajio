@@ -54,7 +54,9 @@ class Negocio(models.Model):
 	slogan = models.CharField(max_length=200, blank=True, null=True)
 	info = models.TextField()
 	email = models.EmailField(blank=True, null=True)
-	location = models.TextField()
+	latitud = models.FloatField(default=0)
+	longitud = models.FloatField(default=0)
+	direccion = models.CharField(max_length=200, blank=True, null=True)
 
 	cel1 = models.CharField(max_length=25, blank=True, null=True)
 	cel2 = models.CharField(max_length=25, blank=True, null=True)

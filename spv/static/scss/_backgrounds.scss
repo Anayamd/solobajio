@@ -19,8 +19,15 @@
 	border: 0;
 }
 
+.bg-sky {
+	background-color: #ddd;
+	background: url('../img/sky.jpg') no-repeat center center;
+	background-size: cover;
+	border: 0;
+}
+
 .bg-gray {
-	background-color: #E5E5E5;
+	background-color: $color-gray;
 }
 
 .bg-skin {
