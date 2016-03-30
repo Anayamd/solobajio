@@ -17,11 +17,13 @@
 	</div>
 
 	<div class="gallery">
-		<img src="{{ MEDIA_URL }}{{ negocio.images.all.0.image }}">
+		{% for i in negocio.images.all %}
+			<img src="{{ MEDIA_URL }}{{ i.image }}">
+		{% endfor %}
 	</div>
 
 	<div class="more-info">
-		<botton class="button expanded btn-primary" id="myBtn"><i class="fi-arrows-out"></i>Conoce mas de nosotros</botton>
+		<botton class="button expanded btn-primary" id="myBtn"><i class="fi-arrows-out"></i>Conoce mas de {{ negocio.name }}</botton>
 	</div>
 	
 	<div class="bg-info">

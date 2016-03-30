@@ -17,6 +17,11 @@
 	{% include "_parts/footer.html" %}
 {% endblock footer %}
 
+{% block css %}
+	<link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/owl.theme.green.min.css' %}">
+{% endblock css %}
+
 {% block js %}
 	 {# AIzaSyCGkrbbQy477Od5YQkSa9hSQ1O6dDqKtZ8  #}
 	 <script>
@@ -61,5 +66,25 @@
 	}
     </script>
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCGkrbbQy477Od5YQkSa9hSQ1O6dDqKtZ8&signed_in=true&callback=initMap" async defer></script>
+	<script src="{% static 'js/owl.carousel.min.js' %}"></script>
 	<script type="text/javascript" src="{% static 'js/modal.js' %}"></script>
+	<script type="text/javascript">
+	$(document).ready(function(){
+	  $(".gallery").owlCarousel({
+	  	loop:true,
+	  	autoHeight:true,
+	  	autoplay:true,
+	  	margin:20,
+    	responsiveClass:true,
+    	responsive:{
+    		0:{
+    			items:1
+    		},
+    		840:{
+    			items:2
+    		}
+    	}
+	  });
+	});
+	</script>
 {% endblock js %}

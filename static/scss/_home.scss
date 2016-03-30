@@ -1,0 +1,46 @@
+@import 'colors';
+
+.afiliate {
+	height: 35vh;
+	margin-top: 2rem;
+	
+	.intro {
+		position: relative;
+		top: 50%;
+		transform: translateY(-50%);
+
+		a {
+			color: #eee;
+		}
+
+		a:hover {
+			color: #fff;
+		}
+	}
+}
+
+.best {
+	width: 100%;
+}
+
+////////// Phone //////////
+
+@media (max-width: $grid-tablet-breakpoint - 1) {
+	.afiliate {
+		height: 30vh;
+	}
+}
+
+////////// Tablet //////////
+
+@media (min-width: $grid-tablet-breakpoint) and (max-width: $grid-desktop-breakpoint - 1) {
+	.afiliate {
+		height: 25vh;
+	}
+}
+
+////////// Desktop //////////
+
+@media (min-width: $grid-desktop-breakpoint) {
+	
+}
