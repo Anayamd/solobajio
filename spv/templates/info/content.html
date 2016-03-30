@@ -19,8 +19,12 @@
 	<div class="gallery">
 		<img src="{{ MEDIA_URL }}{{ negocio.images.all.0.image }}">
 	</div>
+
+	<div class="more-info">
+		<botton class="button expanded btn-primary" id="myBtn"><i class="fi-arrows-out"></i>Conoce mas de nosotros</botton>
+	</div>
 	
-	<div class="bg-sky">
+	<div class="bg-info">
 	<div class="medium-up-2 row simple-blur" id="main-content" data-equalizer>
 		<div class="flex-middle text- column" data-equalizer-watch>
 			<ul class="collection with-header">
@@ -55,13 +59,6 @@
 	</div>
 	</div>
 
-	<!--<div class="flex-middle column">
-		<div>
-			<h4 class="text-center">Descripcion</h4>
-			<p class="justify negocio-info">{{ negocio.info }}</p>
-		</div>
-	</div>-->
-
 	<div class="row column recomendados">
 		<hr>
 		<h4 style="margin: 0;" class="text-center">Recomendados</h4>
@@ -82,4 +79,16 @@
 			<p><a href=""><img src="http://placehold.it/640x480"></a></p>
 		</div>
 	</div>
+</div>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">×</span>
+    <h4>{{ negocio.name }}</h4>
+    <p class="justify">{{ negocio.info }}</p>
+  </div>
+
 </div>

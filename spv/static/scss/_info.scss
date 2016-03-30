@@ -37,6 +37,12 @@
 		}
 	}
 
+	.more-info {
+		margin: 50px auto 0 auto;
+		width: 90%;
+		max-width: 1200px;
+	}
+
 	.recomendados {
 		margin-top: 10px;
 	}
@@ -44,7 +50,7 @@
 
 #main-content {
 	max-width: 100%;
-	padding: 50px 20px;
+	padding: 30px 20px;
 	margin: 50px 0;
 
 	.collection {
@@ -79,13 +85,14 @@
 			width: 100%;
 			text-align: center;
 			font-size: 18px;
+			margin-right: 0;
 		}
 	}
 }
 
 @media (max-width: $grid-tablet-breakpoint - 1) {
 	#main-content {
-		padding-bottom: 0;
+		padding: 10px 0;
 
 		.collection {
 			width: 100%;

@@ -6,54 +6,23 @@
 }
 
 .bg-callout {
-	background-color: #ddd;
-	background: url('../img/laguna_yuriria.jpg') no-repeat center center;
+	background: #ddd url('../img/laguna_yuriria.jpg') no-repeat center center;
 	background-size: cover;
 	border: 0;
 }
 
 .bg-afiliate {
-	background-color: #ddd;
-	background: url('../img/sky-orange.jpeg') no-repeat center center;
+	background: #ddd url('../img/sky-orange.jpeg') no-repeat center center;
 	background-size: cover;
 	border: 0;
 }
 
-.bg-sky {
-	background-color: #ddd;
-	background: url('../img/sky.jpg') no-repeat center center;
+.bg-info {
+	background: #ddd url('../img/lbrown.jpeg') no-repeat center center;
 	background-size: cover;
 	border: 0;
 }
 
 .bg-gray {
 	background-color: $color-gray;
-}
-
-.bg-skin {
-	/* Safari 4-5, Chrome 1-9 */ /* Can't specify a percentage size? Laaaaaame. */
-	background: -webkit-gradient(radial, center center, 0, center center, 460, from($color-skin), to($color-sand)); 
-	
-	/* Safari 5.1+, Chrome 10+ */
-	background: -webkit-radial-gradient(circle, $color-skin, $color-sand); 
-	
-	/* Firefox 3.6+ */
-	background: -moz-radial-gradient(circle, $color-skin, $color-sand); 
-	
-	/* IE 10 */
-	background: -ms-radial-gradient(circle, $color-skin, $color-sand);
-}
-
-.bg-blue {
-	/* Safari 4-5, Chrome 1-9 */ /* Can't specify a percentage size? Laaaaaame. */
-	background: -webkit-gradient(radial, center center, 0, center center, 460, from($color-blue-light), to($color-blue)); 
-	
-	/* Safari 5.1+, Chrome 10+ */
-	background: -webkit-radial-gradient(circle, $color-blue-light, $color-blue); 
-	
-	/* Firefox 3.6+ */
-	background: -moz-radial-gradient(circle, $color-blue-light, $color-blue); 
-	
-	/* IE 10 */
-	background: -ms-radial-gradient(circle, $color-blue-light, $color-blue);
 }
