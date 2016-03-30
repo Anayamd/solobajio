@@ -2,21 +2,27 @@
 <div class="top-bar shadow-6dp" id="lugares-filtros">
 	<div class="top-bar-left">
 		<ul class="dropdown menu colored" data-dropdown-menu>
-			<li>
+			<!--<li>
 				<a href="" class="elegir-title">Ordenar</a>
 				<ul class="menu vertical">
 					<li><a href="">Default</a></li>
 					<li><a href="">Ascendente</a></li>
 					<li><a href="">Descendente</a></li>
 				</ul>
-			</li>
+			</li>-->
 			<li>
 				<a href="" class="elegir-title">Filtrar</a>
 				<ul class="menu vertical">
-					<li><a href="">Hogar</a></li>
-					<li><a href="">Auto</a></li>
+					<form method="POST">
+						{% csrf_token %}
+						<li><button class="btn-link" name="filtro" value="todo">Todo</button></li>
+						{% for industry in industries %}
+							<li><button class="btn-link" name="filtro" value="{{industry.ind_type}}">{{ industry.ind_type|title }}</button></li>
+						{% endfor %}
+					</form>
 				</ul>
 			</li>
+			<li class="fn-white">Mostrando: {{ titulo|title }}</li>
 		</ul>
 	</div>
 	<div class="top-bar-right">

@@ -56,6 +56,17 @@
 	}
 }
 
+.btn-link {
+	width: 100%;
+	line-height: 40px;
+	text-align: center;
+	border-bottom: 1px solid rgba(0,0,0,.2);
+
+	&:hover {
+		background-color: $color-gray;
+	}
+}
+
 .chip {
 	display: inline-block;
 	height: 32px;

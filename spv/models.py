@@ -71,6 +71,9 @@ class Negocio(models.Model):
 	visits = models.IntegerField(default=0)
 	ranking = models.FloatField(default=0)
 
+	def add_visit(self):
+		self.visits += 1
+
 	def publicar(self):
 		self.published_date = timezone.now()
 		self.fb_mentions = self.package.mentions
