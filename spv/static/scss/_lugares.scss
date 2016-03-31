@@ -12,6 +12,11 @@
 			color: #fff;
 		}
 	}
+
+	.showing-todo {
+		color: $color-yellow;
+		font-weight: bold;
+	}
 }
 
 #lugares-listado {

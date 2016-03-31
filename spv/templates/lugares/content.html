@@ -2,38 +2,37 @@
 <div class="top-bar shadow-6dp" id="lugares-filtros">
 	<div class="top-bar-left">
 		<ul class="dropdown menu colored" data-dropdown-menu>
-			<!--<li>
-				<a href="" class="elegir-title">Ordenar</a>
-				<ul class="menu vertical">
-					<li><a href="">Default</a></li>
-					<li><a href="">Ascendente</a></li>
-					<li><a href="">Descendente</a></li>
-				</ul>
-			</li>-->
 			<li>
-				<a href="" class="elegir-title">Filtrar</a>
+				<a href="" class="elegir-title">Categoria</a>
 				<ul class="menu vertical">
-					<form method="POST">
-						{% csrf_token %}
-						<li><button class="btn-link" name="filtro" value="todo">Todo</button></li>
-						{% for industry in industries %}
-							<li><button class="btn-link" name="filtro" value="{{industry.ind_type}}">{{ industry.ind_type|title }}</button></li>
-						{% endfor %}
-					</form>
+					<li><a href="{% url 'lugares' %}" class="btn-link">Todo</a></li>
+					{% for industry in industries %}
+						<li><a href="{% url 'lugares_search' filtro=industry.ind_type %}" class="btn-link">{{ industry.ind_type|title }}</a></li>
+					{% endfor %}
 				</ul>
 			</li>
-			<li class="fn-white">Mostrando: {{ titulo|title }}</li>
+			{% if not filtro %}
+				<li class="showing-todo"><i class="fi-bookmark"></i> Todo</li>
+			{% endif %}
 		</ul>
 	</div>
 	<div class="top-bar-right">
+	<form action="{% url 'lugares' %}" method="post">
+	{% csrf_token %}
 		<div class="menu">
-			<li><input type="search" placeholder="Nombre del negocio"></li>
+			<li><input type="search" name="busqueda" placeholder="Nombre del negocio"></li>
 			<li><button type="button" class="button btn-primary">Buscar</button></li>
 		</div>
+	</form>
 	</div>
 </div>
 
 <div class="row small-up-2 medium-up-2 large-up-3" id="lugares-listado" data-equalizer>
+{% if filtro %}
+	<h2 class="text-center">{{ filtro|title }}</h2>
+{% elif busqueda %}
+	<h2 class="text-center">Resultados: {{ busqueda|title }}</h2>
+{% endif %}
 {% for negocio in negocios %}
 	<div class="column">
 			<figure class="lugar">

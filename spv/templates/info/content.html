@@ -12,7 +12,7 @@
 	
 	<div class="text-center tags">
 		{% for tag in negocio.tags.all %}
-			<a href=""><div class="chip-accent">{{ tag.name }}</div></a>
+			<a href="{% url 'lugares_search' filtro=tag.name %}"><div class="chip-accent">{{ tag.name }}</div></a>
 		{% endfor %}
 	</div>
 

@@ -1,10 +1,11 @@
+{% load staticfiles %}
 <div class="bg-callout">
 	<div class="callout large simple-blur">
 		<div class="row column text-center">
 			<h1>SoloBajio</h1>
 			<p class="lead">Directorio comercial de Moroleon, Uriangato y Yuriria</p>
-			<a href="" class="button large btn-primary">Comercios en la zona</a>
-			<a href="" class="button large btn-secondary-hollow">Eventos</a>
+			<a href="{% url 'lugares' %}" class="button large btn-primary">Comercios en la zona</a>
+			<a href="{% url 'eventos' %}" class="button large btn-secondary-hollow">Eventos</a>
 		</div>
 	</div>
 </div>
@@ -42,16 +43,16 @@
 
 <div class="row small-up-2 medium-up-4">
 	<div class="column">
-		<p><a href=""><img src="http://placehold.it/400x370&text=Hogar" alt="image for article"></a></p>
+		<p><a href=""><img src="{% static 'img/home.png' %}" alt="image for article"></a></p>
 	</div>
 	<div class="column">
-		<p><a href=""><img src="http://placehold.it/400x370&text=Automovil" alt="image for article"></a></p>
+		<p><a href=""><img src="http://placehold.it/400x400&text=Automovil" alt="image for article"></a></p>
 	</div>
 	<div class="column">
-		<p><a href=""><img src="http://placehold.it/400x370&text=Ropa" alt="image for article"></a></p>
+		<p><a href=""><img src="http://placehold.it/400x400&text=Ropa" alt="image for article"></a></p>
 	</div>
 	<div class="column">
-		<p><a href=""><img src="http://placehold.it/400x370&text=Comida" alt="image for article"></a></p>
+		<p><a href=""><img src="http://placehold.it/400x400&text=Comida" alt="image for article"></a></p>
 	</div>
 </div>
 

@@ -1,25 +1,26 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Negocio, Evento, Industry
+from django.db.models import Q
 
 def home(request):
-	# no_pagaron = Negocio.objects.orderby(ranking)
 	return render(request, 'home/index.html')
 
-def lugares(request, search=''):
+def lugares(request):
 	negocios = Negocio.objects.all().exclude(published_date__isnull=True).order_by('ranking')
 	industries = Industry.objects.all()
-	titulo = 'todo'
+	busqueda = False
+
+	if request.method == 'POST':
+		s = request.POST['busqueda']
+		negocios = negocios.filter(Q(name__contains=s) | Q(tags__name__contains=s)).distinct()
+		busqueda = s
 	
-	if request.method == 'POST' and request.POST['filtro'] != 'todo':
-		_filtro = request.POST['filtro']
-		negocios = negocios.filter(industry__ind_type__contains=_filtro)
-		titulo = _filtro
-	
-	elif search != '':
-		negocios = negocios.filter(name__contains=search) #| negocios.filter(name__contains=search)
-		titulo = search
-	
-	return render(request, 'lugares/index.html', {'negocios':negocios, 'industries':industries, 'titulo':titulo})
+	return render(request, 'lugares/index.html', {'negocios':negocios, 'industries':industries, 'busqueda':busqueda})
+
+def lugares_search(request, filtro):
+	negocios = Negocio.objects.all().exclude(published_date__isnull=True).filter(Q(industry__ind_type__iexact=filtro) | Q(tags__name__iexact=filtro)).distinct().order_by('ranking')
+	industries = Industry.objects.all()
+	return render(request, 'lugares/index.html', {'negocios':negocios, 'industries':industries, 'filtro':filtro})
 
 def eventos(request):
 	eventos = Evento.objects.all()
