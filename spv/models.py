@@ -84,7 +84,7 @@ class Negocio(models.Model):
 
 class OpeningHour(models.Model):
 	store = models.ForeignKey('spv.Negocio', related_name='store')
-	weekday = models.SmallIntegerField(choices=WEEKDAYS,unique=True)
+	weekday = models.SmallIntegerField(choices=WEEKDAYS,unique=False)
 	from_hour = models.TimeField()
 	to_hour = models.TimeField()
 
