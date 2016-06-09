@@ -1,0 +1,36 @@
+.effect-label {
+	position: relative;
+	margin: 0;
+
+	img {
+		-webkit-transition: all 0.1s linear;
+		-moz-transition: all 0.1s linear;
+		transition: all 0.1s linear;
+	}
+
+	figcaption {
+		position: absolute;
+		bottom: 0;
+		padding: 10px 20px;
+		width: 100%;
+		opacity: 0;
+		color: #fff;
+		font-size: 18px;
+		background-color: rgba(black, .5);
+
+		p {
+			margin: 0;
+		}
+	}
+
+	&:hover {
+		figcaption {
+			opacity: 1;
+		}
+	}
+}
+
+.effect-label-margin {
+	@extend .effect-label;
+	margin: 5px 0;
+}
