@@ -1,1 +1,1 @@
-web: gunicorn proyectofinalinterfaces.wsgi
+web: gunicorn soloqro.wsgi
