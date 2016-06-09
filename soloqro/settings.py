@@ -132,10 +132,10 @@ USE_TZ = True
 # MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # MEDIA_URL = '/media/'
 
-STATIC_ROOT = 'staticfiles'
-STATIC_URL ='/static/'
+STATIC_ROOT = os.path.abspath(os.path.join(BASE_DIR, 'staticfiles'))
+STATIC_URL ='/staticfiles/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = "/media/"
 STATICFILES_DIRS = (
-os.path.join(BASE_DIR, 'static'),
+os.path.join(BASE_DIR, 'soloqro', 'static'),
 )
