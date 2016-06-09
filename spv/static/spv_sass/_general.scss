@@ -1,0 +1,52 @@
+@import 'colors';
+@import 'variables';
+
+.ellipsis {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.callout {
+	border-right: 0px;
+	border-left: 0px;
+}
+
+a:hover > img {
+	-webkit-filter: brightness(.8);
+	filter: brightness(.8);
+}
+
+.flex-middle {
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+
+	-ms-flex-align: center;
+	-webkit-align-items: center;
+	-webkit-box-align: center;
+
+	align-items: center;
+}
+
+.bloque {
+	padding: 40px 20px;
+}
+
+////////// Phone //////////
+
+@media (max-width: $grid-tablet-breakpoint - 1) {
+	
+}
+
+////////// Tablet //////////
+
+@media (min-width: $grid-tablet-breakpoint) and (max-width: $grid-desktop-breakpoint - 1) {
+	
+}
+
+////////// Desktop //////////
+
+@media (min-width: $grid-desktop-breakpoint) {
+	
+}

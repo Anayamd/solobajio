@@ -1,0 +1,59 @@
+@import 'colors';
+@import 'variables';
+
+#navbar {
+	background-color: $color-menu;
+	padding: 0;
+	border-bottom: 2px solid #000;
+
+	.menu {
+		background-color: $color-menu;
+
+		img {
+			vertical-align: top;
+			max-height: 40px;
+			margin-right: 5px;
+		}
+	}
+
+	li {
+		background-color: $color-menu;
+
+		a {
+			color: #ddd;
+			line-height: 2.5;
+			padding: .5rem 1.7rem;
+		}
+	}
+
+	li:hover {
+		background-color: rgba(black, .2);
+
+		a {
+			color: #fff;
+		}
+	}
+}
+
+////////// Phone //////////
+
+@media (max-width: $grid-tablet-breakpoint - 1) {
+	#navbar li a {
+		padding: .7rem 1rem;
+	}
+}
+
+////////// Tablet //////////
+
+@media (min-width: $grid-tablet-breakpoint) and (max-width: $grid-desktop-breakpoint - 1) {
+	
+}
+
+////////// Desktop //////////
+
+@media (min-width: $grid-desktop-breakpoint) {
+	#navbar li a {
+		line-height: 3;
+		padding: .7rem 2.5rem;
+	}
+}

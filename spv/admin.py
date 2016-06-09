@@ -1,5 +1,8 @@
 from django.contrib import admin
-from .models import Owner, Package, Industry, Negocio, NegocioImg, OpeningHour, Evento, EventoImg
+from .models import Owner, Package, Industry, Negocio, NegocioImg, OpeningHour, Evento, EventoImg, Mensaje
+
+admin.site.site_header = 'Solo Platform Variant'
+admin.site.site_title = 'SPV'
 
 # NEGOCIOS #
 
@@ -39,6 +42,7 @@ class EventoAdmin(admin.ModelAdmin):
 
 admin.site.register(Owner)
 admin.site.register(Package)
+admin.site.register(Mensaje)
 admin.site.register(Industry, IndustryAdmin)
 admin.site.register(Negocio, NegocioAdmin)
 admin.site.register(NegocioImg, ImgAdmin)

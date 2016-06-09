@@ -7,12 +7,14 @@
 				<ul class="menu vertical">
 					<li><a href="{% url 'lugares' %}" class="btn-link">Todo</a></li>
 					{% for industry in industries %}
-						<li><a href="{% url 'lugares_search' filtro=industry.ind_type %}" class="btn-link">{{ industry.ind_type|title }}</a></li>
+						<li><a href="{% url 'lugares' filtro=industry.ind_type %}" class="btn-link">{{ industry.ind_type|title }}</a></li>
 					{% endfor %}
 				</ul>
 			</li>
 			{% if not filtro %}
 				<li class="showing-todo"><i class="fi-bookmark"></i> Todo</li>
+			{% else %}
+				<li class="fn-white"><i class="fi-bookmark"></i> {{filtro|title}}</li>
 			{% endif %}
 		</ul>
 	</div>
@@ -27,116 +29,21 @@
 	</div>
 </div>
 
+<!--<div class="text-center" id="lugares-listado">
+	<label for="checkbox-1">
+		<input type="checkbox" id="checkbox-1">
+		<span class="mdl-checkbox__label">Querétaro</span>
+	</label>
+</div>-->
 <div class="row small-up-2 medium-up-2 large-up-3" id="lugares-listado" data-equalizer>
-{% if filtro %}
-	<h2 class="text-center">{{ filtro|title }}</h2>
-{% elif busqueda %}
-	<h2 class="text-center">Resultados: {{ busqueda|title }}</h2>
-{% endif %}
 {% for negocio in negocios %}
 	<div class="column">
-			<figure class="lugar">
-				<a href="{% url 'info' pk=negocio.pk %}"><img src="{{ MEDIA_URL }}{{ negocio.images.all.0.image }}" alt="{{ negocio.images.all.0.image }}" data-equalizer-watch></a>
-				<figcaption>
-					<p><img src="{{ MEDIA_URL }}{{ negocio.industry.icon }}">{{ negocio.name }}</p>
-				</figcaption>			
-			</figure>
+		<figure class="lugar">
+			<a href="{% url 'info' pk=negocio.pk %}"><img src="{{ MEDIA_URL }}{{ negocio.images.all.0.image }}" alt="{{ negocio.images.all.0.image }}" data-equalizer-watch></a>
+			<figcaption>
+				<p><img src="{{ MEDIA_URL }}{{ negocio.industry.icon }}">{{ negocio.name }}</p>
+			</figcaption>			
+		</figure>
 	</div>
 {% endfor %}
-	<div class="column">
-			<figure class="lugar">
-				<a href=""><img src="http://placehold.it/640x480" data-equalizer-watch></a>
-				<figcaption>
-					<p><img src="{% static 'img/SoloBajio_icon.png' %}">Nombre muy largo del negocio</p>
-				</figcaption>			
-			</figure>
-	</div>
-	<div class="column">
-			<figure class="lugar">
-				<a href=""><img src="http://placehold.it/640x480" data-equalizer-watch></a>
-				<figcaption>
-					<p><img src="{% static 'img/SoloBajio_icon.png' %}">Nombre del negocio</p>
-				</figcaption>			
-			</figure>
-	</div>
-	<div class="column">
-			<figure class="lugar">
-				<a href=""><img src="http://placehold.it/640x480" data-equalizer-watch></a>
-				<figcaption>
-					<p><img src="{% static 'img/SoloBajio_icon.png' %}">Nombre muy largo del negocio</p>
-				</figcaption>			
-			</figure>
-	</div>
-	<div class="column">
-			<figure class="lugar">
-				<a href=""><img src="http://placehold.it/640x480" data-equalizer-watch></a>
-				<figcaption>
-					<p><img src="{% static 'img/SoloBajio_icon.png' %}">Nombre muy largo del negocio</p>
-				</figcaption>			
-			</figure>
-	</div>
-	<div class="column">
-			<figure class="lugar">
-				<a href=""><img src="http://placehold.it/640x480" data-equalizer-watch></a>
-				<figcaption>
-					<p><img src="{% static 'img/SoloBajio_icon.png' %}">Nombre muy largo del negocio</p>
-				</figcaption>			
-			</figure>
-	</div>
-	<div class="column">
-			<figure class="lugar">
-				<a href=""><img src="http://placehold.it/640x480" data-equalizer-watch></a>
-				<figcaption>
-					<p><img src="{% static 'img/SoloBajio_icon.png' %}">Nombre muy largo del negocio</p>
-				</figcaption>			
-			</figure>
-	</div>
-	<div class="column">
-			<figure class="lugar">
-				<a href=""><img src="http://placehold.it/640x480" data-equalizer-watch></a>
-				<figcaption>
-					<p><img src="{% static 'img/SoloBajio_icon.png' %}">Nombre muy largo del negocio</p>
-				</figcaption>			
-			</figure>
-	</div>
-	<div class="column">
-			<figure class="lugar">
-				<a href=""><img src="http://placehold.it/640x480" data-equalizer-watch></a>
-				<figcaption>
-					<p><img src="{% static 'img/SoloBajio_icon.png' %}">Nombre muy largo del negocio</p>
-				</figcaption>			
-			</figure>
-	</div>
-	<div class="column">
-			<figure class="lugar">
-				<a href=""><img src="http://placehold.it/640x480" data-equalizer-watch></a>
-				<figcaption>
-					<p><img src="{% static 'img/SoloBajio_icon.png' %}">Nombre muy largo del negocio</p>
-				</figcaption>			
-			</figure>
-	</div>
-	<div class="column">
-			<figure class="lugar">
-				<a href=""><img src="http://placehold.it/640x480" data-equalizer-watch></a>
-				<figcaption>
-					<p><img src="{% static 'img/SoloBajio_icon.png' %}">Nombre muy largo del negocio</p>
-				</figcaption>			
-			</figure>
-	</div>
-	<div class="column">
-			<figure class="lugar">
-				<a href=""><img src="http://placehold.it/640x480" data-equalizer-watch></a>
-				<figcaption>
-					<p><img src="{% static 'img/SoloBajio_icon.png' %}">Nombre muy largo del negocio</p>
-				</figcaption>			
-			</figure>
-	</div>
-	<div class="column">
-			<figure class="lugar">
-				<a href=""><img src="http://placehold.it/640x480" data-equalizer-watch></a>
-				<figcaption>
-					<p><img src="{% static 'img/SoloBajio_icon.png' %}">Nombre muy largo del negocio</p>
-				</figcaption>			
-			</figure>
-	</div>
 </div>

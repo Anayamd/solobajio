@@ -1,0 +1,28 @@
+@import 'colors';
+
+.simple-blur {
+	-webkit-backdrop-filter: blur(10px);
+		background-color: transparent;
+}
+
+.bg-callout {
+	background: #ddd url('../img/laguna_yuriria.jpg') no-repeat center center;
+	background-size: cover;
+	border: 0;
+}
+
+.bg-afiliate {
+	background: #ddd url('../img/sky-orange.jpeg') no-repeat center center;
+	background-size: cover;
+	border: 0;
+}
+
+.bg-info {
+	background: #ddd url('../img/iphone.JPG') no-repeat center center;
+	background-size: cover;
+	border: 0;
+}
+
+.bg-gray {
+	background-color: $color-gray;
+}

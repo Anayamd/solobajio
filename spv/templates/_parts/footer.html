@@ -7,7 +7,6 @@
 				<a href="{% url 'home' %}">Inicio</a>
 				<a href="{% url 'lugares' %}">Lugares</a>
 				<a href="{% url 'eventos' %}">Eventos</a>
-				<a href="">Conocenos</a>
 				<a href="">Contacto</a>
 			</p>
 			<ul class="inline-list social">
@@ -20,10 +19,11 @@
 		</div>
 
 		<div class="small-12 medium-6 columns">
-			<form class="footer-form">
-				<h3>Contactanos</h3>
+			<form method="POST" class="footer-form" action="{% url 'mensaje' %}">
+				{% csrf_token %}
+				<h3>Contáctanos</h3>
 				<input type="email" id="email" placeholder="Email" required></input>
-				<textarea rows="2" id="message" placeholder="Mensaje" required></textarea>
+				<textarea rows="2" id="texto" placeholder="Mensaje" required></textarea>
 				<button class="button btn-primary" type="submit" value="Submit">Enviar</button>
 			</form>
 		</div>

@@ -1,0 +1,33 @@
+.fn-18 {
+	font-size: 18px;
+}
+
+.fn-24 {
+	font-size: 24px;
+}
+
+.fn-white {
+	color: #fff;
+}
+
+.fn-black {
+	color: #000;
+}
+
+.fn-gray {
+	color: $color-light-gray;
+}
+
+.fn-yellow {
+	color: $color-yellow;
+}
+
+.fn-shadow {
+	text-shadow: 1px 1px rgba(50,50,50,.8);
+}
+
+.justify {
+	text-align: justify;
+	text-justify: inter-word;
+	white-space: pre-line;
+}

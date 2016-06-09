@@ -16,6 +16,19 @@ WEEKDAYS = [
 	(7, "Domingo"),
 ]
 
+class Mensaje(models.Model):
+	email = models.CharField(max_length=100)
+	texto = models.TextField()
+	fecha = models.DateTimeField()
+
+	class Meta:
+		verbose_name = "Mensaje"
+		verbose_name_plural = "Mensajes"
+
+	def __str__(self):
+		self.email
+
+
 class Owner(models.Model):
 	holder = models.CharField(max_length=100)
 	email = models.EmailField()
@@ -44,6 +57,10 @@ class Industry(models.Model):
 
 	def __str__(self):
 		return self.ind_type
+
+	class Meta:
+		verbose_name = "Industry"
+		verbose_name_plural = "Industries"
 
 class Negocio(models.Model):
 	owner = models.ForeignKey('spv.Owner', related_name='owner')
@@ -83,7 +100,7 @@ class Negocio(models.Model):
 		return self.name
 
 class OpeningHour(models.Model):
-	store = models.ForeignKey('spv.Negocio', related_name='store')
+	store = models.ForeignKey('spv.Negocio', related_name='horarios')
 	weekday = models.SmallIntegerField(choices=WEEKDAYS,unique=False)
 	from_hour = models.TimeField()
 	to_hour = models.TimeField()

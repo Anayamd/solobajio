@@ -24,7 +24,8 @@
 
 {% block js %}
 	 {# AIzaSyCGkrbbQy477Od5YQkSa9hSQ1O6dDqKtZ8  #}
-	 <script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCGkrbbQy477Od5YQkSa9hSQ1O6dDqKtZ8&signed_in=true&callback=initMap" async defer></script>
+	<script>
       var map;
       function initMap() {
       	var mapOptions = {
@@ -65,7 +66,6 @@
 	  });
 	}
     </script>
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCGkrbbQy477Od5YQkSa9hSQ1O6dDqKtZ8&signed_in=true&callback=initMap" async defer></script>
 	<script src="{% static 'js/owl.carousel.min.js' %}"></script>
 	<script type="text/javascript" src="{% static 'js/modal.js' %}"></script>
 	<script type="text/javascript">

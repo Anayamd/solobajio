@@ -1,4 +1,5 @@
 {% load staticfiles %}
+{% load spv_tags %}
 
 <div class="map-display" id="map"></div>
 
@@ -12,7 +13,7 @@
 	
 	<div class="text-center tags">
 		{% for tag in negocio.tags.all %}
-			<a href="{% url 'lugares_search' filtro=tag.name %}"><div class="chip-accent">{{ tag.name }}</div></a>
+			<a href="{% url 'lugares' filtro=tag.name %}"><div class="chip-accent">{{ tag.name }}</div></a>
 		{% endfor %}
 	</div>
 
@@ -21,49 +22,64 @@
 			<img src="{{ MEDIA_URL }}{{ i.image }}">
 		{% endfor %}
 	</div>
-
-	<div class="more-info">
-		<botton class="button expanded btn-primary" id="myBtn"><i class="fi-arrows-out"></i>Conoce mas de {{ negocio.name }}</botton>
-	</div>
 	
 	<div class="bg-info">
 	<div class="medium-up-2 row simple-blur" id="main-content" data-equalizer>
-		<div class="flex-middle text- column" data-equalizer-watch>
+		<div class="flex-middle column" data-equalizer-watch>
 			<ul class="collection with-header">
-				<li class="collection-header"><h4>Contacto</h4></li>
+				<li class="collection-header fn-white fn-shadow"><h4>Contacto</h4></li>
 				{% if negocio.cel1 and negocio.cel1 != "" %}
-					<a href="tel:{{ negocio.cel1 }}"><li class="collection-item"><i class="fi-telephone"></i>{{ negocio.cel1 }}</li></a>
+					<a href="tel:{{ negocio.cel1 }}"><li class="collection-item"><i class="fi-telephone fn-yellow"></i>{{ negocio.cel1 }}</li></a>
 				{% endif %}
 				{% if negocio.cel2 and negocio.cel2 != "" %}
-					<a href="tel:{{ negocio.cel2 }}"><li class="collection-item"><i class="fi-telephone"></i>{{ negocio.cel2 }}</li></a>
+					<a href="tel:{{ negocio.cel2 }}"><li class="collection-item"><i class="fi-telephone fn-yellow"></i>{{ negocio.cel2 }}</li></a>
 				{% endif %}
 				{% if negocio.cel3 and negocio.cel3 != "" %}
-					<a href="tel:{{ negocio.cel3 }}"><li class="collection-item"><i class="fi-telephone"></i>{{ negocio.cel3 }}</li></a>
+					<a href="tel:{{ negocio.cel3 }}"><li class="collection-item"><i class="fi-telephone fn-yellow"></i>{{ negocio.cel3 }}</li></a>
 				{% endif %}
 				{% if negocio.email and negocio.email != "" %}
-					<a href="mailto:{{ negocio.email }}?Subject=SoloBajio%20Contacto"><li class="collection-item"><i class="fi-mail"></i>{{ negocio.email }}</li></a>
+					<a href="mailto:{{ negocio.email }}?Subject=SoloBajio%20Contacto"><li class="collection-item"><i class="fi-mail fn-yellow"></i>{{ negocio.email }}</li></a>
 				{% endif %}
 			</ul>
 		</div>
 		<div class="flex-middle column" data-equalizer-watch>
 			<div class="social">
 				{% if negocio.social_fb and negocio.social_fb != "" %}
-					<a href="http://facebook.com/{{ negocio.social_fb }}" class="button btn-secondary"><i class="fi-social-facebook"></i>{{ negocio.social_fb }}</a>
+					<a href="http://facebook.com/{{ negocio.social_fb }}" class="button btn-fb"><i class="fi-social-facebook"></i>{{ negocio.name }}</a>
 				{% endif %}
 				{% if negocio.social_twitter and negocio.social_twitter != "" %}
-					<a href="http://twitter.com/{{ negocio.social_twitter }}" class="button btn-secondary"><i class="fi-social-twitter"></i>{{ negocio.social_twitter }}</a>
+					<a href="http://twitter.com/{{ negocio.social_twitter }}" class="button btn-twitter"><i class="fi-social-twitter"></i>{{ negocio.social_twitter }}</a>
 				{% endif %}
 				{% if negocio.social_website and negocio.social_website != "" %}
-					<a href="http://{{ negocio.social_website }}" class="button btn-secondary">{{ negocio.social_website }}</a>
+					<a href="{{ negocio.social_website }}" class="button btn-website"><i class="fi-web"></i>{{ negocio.social_website }}</a>
 				{% endif %}
 			</div>
 		</div>
 	</div>
 	</div>
 
+	<div class="row large-up-2" id="information">
+		<div class="column">
+			<div class="card shadow-8dp">
+				<h3 class="text-center card-title">Información</h3>
+				<p class="justify">{{ negocio.info }}</p>
+			</div>
+		</div>
+		<div class="column">
+			<div class="card shadow-8dp">
+				<h3 class="text-center card-title">Horarios</h3>
+				<div id="horarios">
+					{% for horario in negocio.horarios.all %}
+						<div><span class="fn-black">{{days|array_index_one:horario.weekday}}</span>: {{horario.from_hour}} - {{horario.to_hour}}</div>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+	</div>
+
 	<div class="row column recomendados">
 		<hr>
-		<h4 style="margin: 0;" class="text-center">Recomendados</h4>
+			<h4 style="margin: 0;" class="text-center">Recomendados</h4>
 		<hr>
 	</div>
 
@@ -81,16 +97,4 @@
 			<p><a href=""><img src="http://placehold.it/640x480"></a></p>
 		</div>
 	</div>
-</div>
-
-<!-- The Modal -->
-<div id="myModal" class="modal">
-
-  <!-- Modal content -->
-  <div class="modal-content">
-    <span class="close">×</span>
-    <h4>{{ negocio.name }}</h4>
-    <p class="justify">{{ negocio.info }}</p>
-  </div>
-
 </div>
