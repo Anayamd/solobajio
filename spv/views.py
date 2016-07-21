@@ -29,9 +29,9 @@ def eventos(request):
 def info(request, pk):
         negocio = get_object_or_404(Negocio, pk=pk)
         days = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo']
-        recomendados = Negocio.objects.exclude(pk=negocio.pk).filter(industry=negocio.industry)[:4]
+        recomendados = Negocio.objects.exclude(Q(pk=negocio.pk) | Q(published_date__isnull=True)).filter(industry=negocio.industry)[:4]
         if len(recomendados) < 4:
-            recomendados = list(chain(recomendados, Negocio.objects.exclude( Q(pk=negocio.pk) | Q(industry=negocio.industry))[:4-len(recomendados)]))
+            recomendados = list(chain(recomendados, Negocio.objects.exclude( Q(pk=negocio.pk) | Q(published_date__isnull=True) | Q(industry=negocio.industry))[:4-len(recomendados)]))
         return render(request, 'info/index.html', {'negocio':negocio, 'days':days, 'recomendados':recomendados})
 
 def mensaje(request):
