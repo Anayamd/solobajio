@@ -26,7 +26,7 @@ class Mensaje(models.Model):
 		verbose_name_plural = "Mensajes"
 
 	def __str__(self):
-		self.email
+	    return self.email
 
 
 class Owner(models.Model):

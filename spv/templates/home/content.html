@@ -12,7 +12,7 @@
 
 <div class="row">
 	<div class="medium-8 columns">
-		<p><a href=""><img src="http://placehold.it/800x600" class="best"></a></p>
+        <p><a href="{% url 'info' pk=wow.pk %}"><img src="{{wow.images.all.0.image.url}}" class="best" alt="{{wow.images.all.0.image.url}}"></a></p>
 	</div>
 	<div class="medium-4 text-center columns">
 		<p><a href="{% url 'lugares' %}"><img src="http://placehold.it/640x480&text=Lugares"></a></p>

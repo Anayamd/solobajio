@@ -6,7 +6,8 @@ from django.utils import timezone
 from itertools import chain
  
 def home(request):
-        return render(request, 'home/index.html')
+        wow = Negocio.objects.exclude(published_date__isnull=True).order_by('ranking')[0]
+        return render(request, 'home/index.html', {'wow':wow})
 
 def lugares(request, filtro=None):
         if not filtro:
@@ -36,11 +37,8 @@ def info(request, pk):
 
 def mensaje(request):
         if request.method == 'POST':
-                print('Entramos a post')
                 form = MensajeForm(request.POST)
-                print(form)
                 if form.is_valid():
-                        print('Valid FORM')
                         mensaje = form.save(commit=False)
                         mensaje.fecha = timezone.now()
                         mensaje.save()

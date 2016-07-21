@@ -22,8 +22,8 @@
 			<form method="POST" class="footer-form" action="{% url 'mensaje' %}">
 				{% csrf_token %}
 				<h3>Contáctanos</h3>
-				<input type="email" id="email" placeholder="Email" required></input>
-				<textarea rows="2" id="texto" placeholder="Mensaje" required></textarea>
+				<input name="email" type="email" id="email" placeholder="Email" required></input>
+				<textarea rows="2" name="texto" id="texto" placeholder="Mensaje" required></textarea>
 				<button class="button btn-primary" type="submit" value="Submit">Enviar</button>
 			</form>
 		</div>
